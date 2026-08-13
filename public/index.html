@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prikbord</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1 class="brand">Prikbord<span class="brand-dot">.</span></h1>
+      <div id="topbar-actions"></div>
+    </div>
+  </header>
+
+  <main id="app" class="wrap">
+    <p class="loading">Bezig met laden…</p>
+  </main>
+
+  <template id="tpl-login">
+    <section class="login-card">
+      <h2>Inloggen</h2>
+      <p class="hint">Gebruik het gedeelde wachtwoord om berichten te plaatsen of te verwijderen.</p>
+      <form id="login-form">
+        <label for="password">Wachtwoord</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required />
+        <button type="submit">Inloggen</button>
+        <p id="login-error" class="error" role="alert" hidden></p>
+      </form>
+    </section>
+  </template>
+
+  <template id="tpl-board">
+    <section class="composer">
+      <form id="post-form">
+        <textarea id="new-text" maxlength="500" rows="2" placeholder="Bijv. Vergadering raadzaal 19:30, trap op rechtsaf" required></textarea>
+        <button type="submit">Plaatsen</button>
+      </form>
+      <p id="post-error" class="error" role="alert" hidden></p>
+    </section>
+
+    <section id="board" class="board" aria-live="polite"></section>
+
+    <p class="feed-hint">
+      RSS-feed voor het scherm in de hal:
+      <code id="feed-url"></code>
+      <button id="copy-feed" type="button" class="copy-btn">Kopieer</button>
+    </p>
+  </template>
+
+  <template id="tpl-note">
+    <article class="note">
+      <span class="pin" aria-hidden="true"></span>
+      <p class="note-text"></p>
+      <div class="note-footer">
+        <time class="note-time"></time>
+        <button type="button" class="delete-btn">Verwijderen</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="/app.js"></script>
+</body>
+</html>
