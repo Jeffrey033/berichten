@@ -1,0 +1,18 @@
+{
+  "name": "collega-mededelingenbord",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Intern mededelingenbord met RSS-feed voor het scherm in de hal",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "express-session": "^1.18.0"
+  }
+}
